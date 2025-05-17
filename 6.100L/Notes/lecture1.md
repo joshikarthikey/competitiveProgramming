@@ -1,123 +1,157 @@
-# Introduction to Computer Science and Programming Using Python
+# 6.100L Lecture 1 – Introduction to Computation and Python
 
-## Types of Knowledge
-
-| Type             | Description                            |
-|------------------|----------------------------------------|
-| Declarative      | Statements of fact                     |
-| Imperative       | Step-by-step instructions ("how-to")   |
-
-Programming involves writing imperative knowledge to compute facts.
+## What is Computation?
+- **Declarative Knowledge**: Facts (e.g., "The Earth orbits the Sun").
+- **Imperative Knowledge**: Procedures/recipes (e.g., how to bake a cake).
+- **Programming**: Writing *recipes* to generate *facts*.
 
 ---
 
-## Algorithms
+## Numerical Example: Square Root Approximation
+- Given a number `x`, the square root `y` satisfies `y * y = x`.
+- Start with a guess `g`:
+  1. If `g * g` is close to `x`, return `g`.
+  2. Else, update guess: `g = (g + x/g) / 2`.
+  3. Repeat until convergence.
 
-An **algorithm** is a finite sequence of well-defined instructions.
-
-**Key properties:**
-1. Sequence of simple steps.
-2. Flow control to dictate execution order.
-3. Clear stopping condition.
-
-### Example: Square Root Approximation
-| Step | Guess `g` | `g * g` | `x / g` | New Guess `(g + x/g)/2` |
-|------|-----------|---------|---------|--------------------------|
-| 1    | 3         | 9       | 5.33    | 4.17                     |
-| 2    | 4.17      | 17.36   | 3.837   | 4.0035                   |
-| 3    | 4.0035    | 16.0277 | 3.997   | 4.000002                 |
-
----
-
-## Computer Fundamentals
-
-**Stored Program Computer:**
-- Executes a sequence of stored instructions.
-- Instructions include arithmetic, logic, data movement, and control.
-
-**Architecture Components:**
-| Component              | Role                               |
-|------------------------|------------------------------------|
-| Memory                 | Stores data and instructions        |
-| Arithmetic Logic Unit  | Performs operations                 |
-| Control Unit           | Directs execution flow              |
-| Input/Output           | Interacts with external environment |
-
----
-
-## Programming Languages
-
-| Concept             | Programming Analog        | Example                             |
-|---------------------|---------------------------|-------------------------------------|
-| Primitive Constructs| Numbers, Strings, Operators| `"hi"`, `5`, `+`, `*`               |
-| Syntax              | Grammar rules              | `"hi"*5` is valid; `"hi"5` is not   |
-| Static Semantics    | Meaningful combinations    | `"hi" + 5` is syntactically valid but semantically wrong |
-| Semantics           | Actual behavior             | `"The chicken is ready to eat"` — context needed         |
-
----
-
-## Python Objects
-
-### Scalar Types
-
-| Type      | Example Values     |
-|-----------|--------------------|
-| `int`     | 1, -100, 300       |
-| `float`   | 3.14, -1.22, 0.0   |
-| `bool`    | `True`, `False`    |
-| `NoneType`| `None`             |
-
-### Non-Scalar Types
-- Strings: `"abc"`
-- Lists, Dictionaries (covered later)
-
-Use `type()` to inspect object type.
-
----
-
-## Type Conversion
-
-| Expression              | Result  | Type   |
-|-------------------------|---------|--------|
-| `float(123)`            | 123.0   | float  |
-| `int(7.9)`              | 7       | int    |
-| `round(3.9)`            | 4       | int    |
-| `float(round(7.2))`     | 7.0     | float  |
-
----
-
-## Expressions and Operators
-
-| Expression        | Evaluated Value | Type   |
-|------------------|------------------|--------|
-| `3 + 2`           | 5                | int    |
-| `(4 + 2) * 6 - 1` | 35               | int    |
-| `5 / 3`           | 1.666...         | float  |
-
-**Operators:**
-- Arithmetic: `+`, `-`, `*`, `/`, `//`, `%`, `**`
-- Precedence: `**` > `* / %` > `+ -`
-
----
-
-## Variables and Assignments
-
-- Use `=` to bind a name to a value.
-- Names reference single values at a time.
-
-**Example:**
-```python
-pi = 355 / 113
-radius = 2.2
-area = pi * (radius ** 2)
-circumference = pi * (radius * 2)
+**Example**:
+```
+x = 16, initial g = 3
+1. g = 3         → g² = 9         → x/g = 5.33      → new g = 4.17
+2. g = 4.17      → g² = 17.36     → x/g = 3.837     → new g = 4.0035
+3. g = 4.0035    → g² = 16.03     → x/g = 3.997     → new g = 4.000002
 ```
 
-| Line                     | Result              |
-|--------------------------|---------------------|
-| `pi = 355 / 113`         | `pi ≈ 3.1415929`     |
-| `radius = 2.2`           | `radius = 2.2`       |
-| `area = pi * radius**2`  | Area of circle       |
-| `circumference = pi * 2 * radius` | Circumference |
+---
 
-**Note:** Reassigning variables doesn’t update dependent ones unless re-evaluated.
+## Algorithms: Definition
+- A **sequence of steps** to solve a problem.
+- Includes:
+  1. A clear set of steps.
+  2. A defined flow of control.
+  3. A stopping condition.
+
+> **Analogy**: A cake recipe is an algorithm.
+
+---
+
+## Computers: Machines That Execute Algorithms
+- Two capabilities:
+  - Perform simple operations very quickly.
+  - Store and retrieve large amounts of data.
+- **Types of Computers**:
+  - **Fixed Program** (pre-1940s): Limited to predefined tasks.
+  - **Stored Program**: Stores instructions in memory and executes them.
+
+### Key Insight:
+> Programs are data too!
+
+---
+
+## Components of a Computer (Simplified)
+- **Memory**: Stores data and programs.
+- **Control Unit**: Manages instruction execution.
+- **Arithmetic/Logic Unit (ALU)**: Performs calculations and logic.
+- **Input/Output**: Interfaces for user and data interaction.
+
+---
+
+## Programming Language Concepts
+
+### 1. **Primitives**
+- Basic data types and operations (e.g., numbers, strings, +, -, *).
+
+### 2. **Syntax**
+- Rules defining valid expressions.
+  - Valid: `"hi" * 5`
+  - Invalid: `"hi"5`
+
+### 3. **Static Semantics**
+- Valid syntax but incorrect usage.
+  - Example: `"hi" + 5` (valid syntax, but undefined behavior)
+
+### 4. **Semantics**
+- Meaning of syntactically correct statements.
+- Programs must have one well-defined meaning (unlike natural language).
+
+---
+
+## Common Programming Errors
+- **Syntactic Errors**: Grammar mistakes (e.g., missing `:`).
+- **Static Semantic Errors**: Type mismatches or invalid operations.
+- **Logic Errors**: Program runs but doesn’t do what was intended.
+
+---
+
+## Python Basics
+
+### Programs
+- **Definitions**: Set up functions and values.
+- **Commands**: Instructions for the interpreter to execute.
+- Can be run via **interactive shell** or **script file**.
+
+---
+
+## Programming Environment: Anaconda
+- **Editor**: For writing code (.py files)
+- **Shell/Console**: For running code and seeing output
+
+---
+
+## Objects in Python
+
+### Scalar (Atomic)
+- `int`: Whole numbers (e.g., `5`, `-100`)
+- `float`: Real numbers (e.g., `3.14`)
+- `bool`: Boolean values (`True`, `False`)
+- `NoneType`: Special object representing "nothing"
+
+```python
+type(5)        # int
+type(3.0)      # float
+type(True)     # bool
+type(None)     # NoneType
+```
+
+### Non-Scalar (Structured)
+- Strings: `"hello"`
+- Lists, Dictionaries, etc.
+
+---
+
+## Type Conversions (Casting)
+- `float(3)` → `3.0`
+- `int(3.9)` → `3` *(truncates)*
+- `round(3.9)` → `4`
+```python
+float(round(7.2))    # 7.0
+int(7.9)             # 7
+```
+
+---
+
+## Expressions
+- Combine objects with operators:
+```python
+3 + 2              # 5 (int)
+5 / 3              # 1.666... (float)
+type((4+2)*6-1)    # int
+```
+- Python stores the result, not the expression.
+
+### Operator Precedence
+- `**` > `* / %` > `+ -`
+- Use parentheses to control evaluation order.
+
+---
+
+## Arithmetic Operators Summary
+| Operator | Description               |
+|----------|---------------------------|
+| `+`      | Addition                  |
+| `-`      | Subtraction               |
+| `*`      | Multiplication            |
+| `/`      | Division (always float)  |
+| `//`     | Floor division            |
+| `%`      | Modulus (remainder)       |
+| `**`     | Exponentiation            |
