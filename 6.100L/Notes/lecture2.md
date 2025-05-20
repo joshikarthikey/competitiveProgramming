@@ -1,4 +1,4 @@
-# Lecture 2: Strings, Input/Output, and Branching
+# 6.100L Lecture 2: Strings, Input/Output, and Branching
 
 ## Strings
 - Strings are sequences of characters, case-sensitive.
