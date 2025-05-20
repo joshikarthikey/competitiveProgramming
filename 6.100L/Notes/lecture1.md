@@ -1,4 +1,4 @@
-# 6.100L Lecture 1 – Introduction to Computation and Python
+# 6.100L Lecture 1: Introduction to Computation and Python
 
 ## What is Computation?
 - **Declarative Knowledge**: Facts (e.g., "The Earth orbits the Sun").
