@@ -1,4 +1,4 @@
-# Lecture 3: Iteration 
+# 6.100L Lecture 3: Iteration 
 
 ## Zelda, Lost Woods Example
 - Repeating a choice like “go right” keeps you in the loop.
