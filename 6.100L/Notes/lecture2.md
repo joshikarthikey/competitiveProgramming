@@ -27,6 +27,34 @@ s[::-1]  # reverse string
 
 ---
 
+## Slicing to Get a Substring
+
+- Strings can be sliced using the syntax: `string[start:stop:step]`
+- This retrieves characters starting at `start`, up to but **not including** `stop`, taking every `step` character.
+- If only `[start:stop]` is provided, `step` defaults to `1`.
+- If only one number is given, it's just indexing a single character.
+- You can omit any of the three values:
+  - `s[:]` gives the entire string.
+  - `s[::-1]` gives the reversed string.
+
+### Example
+
+```python
+s = "abcdefgh"
+
+# Index positions:
+#  Forward:  0  1  2  3  4  5  6  7
+#  Reverse: -8 -7 -6 -5 -4 -3 -2 -1
+
+s[3:6]      # 'def'        (from index 3 to 5)
+s[3:6:2]    # 'df'         (from index 3 to 5, skipping every other)
+s[:]        # 'abcdefgh'   (entire string)
+s[::-1]     # 'hgfedcba'   (reversed string)
+s[4:1:-2]   # 'ec'         (from index 4 to 2, stepping -2)
+```
+
+---
+
 ## Input/Output
 ### Printing
 ```python
