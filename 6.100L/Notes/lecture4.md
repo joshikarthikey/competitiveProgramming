@@ -1,4 +1,4 @@
-# Lecture 4: Loops over Strings, Guess-and-Check, Binary
+# 6.100L Lecture 4: Loops over Strings, Guess-and-Check, Binary
 
 ## `break` Statement
 - Exits the innermost loop immediately
